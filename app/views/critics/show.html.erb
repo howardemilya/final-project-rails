@@ -1,0 +1,23 @@
+<% if session[:user_id] == @critic.id
+  Welcome <%= @critic.name%>!<br>
+  Email: <%= @critic.email %>
+  <br>
+  <% if !@critic.reviews.empty? %>
+    Here are your reviews:<br>
+    <ol><% @critic.reviews.each do |review| %>
+      <li><%= link_to review.movie.title, movie_path(review.movie_id) %></li>
+    <% end %></ol>
+  <% else %>
+      You have no reviews yet! To see available movies for your review:<br>
+      <%= link_to "click here for all movies", movies_path %>
+  <% end %>
+<% else %>
+  <% if !@critic.reviews.empty? %>
+    <%= @critic.name%>'s Reviews:
+    <ol><% @critic.reviews.each do |review| %>
+      <li><%= link_to review.movie.title, movie_path(review.movie_id) %></li>
+    <% end %></ol>
+  <% else %>
+    <%= @critic.name %> does not have any reviews yet!
+  <% end %>
+<% end %>
