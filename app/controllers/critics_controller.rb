@@ -22,9 +22,15 @@ class CriticsController < ApplicationController
   end
 
   def edit
+    require_logged_in
+    @critic = Critic.find(session[:user_id])
   end
 
   def update
+    @critic = Critic.find(params[:id])
+    @critic.update(critic_params)
+    @critic.save
+    redirect_to critic_path(@critic)
   end
 
   def destroy
@@ -33,7 +39,7 @@ class CriticsController < ApplicationController
   private
 
   def critic_params
-    params.require(:critic).permit(:name, :email, :password, :password_confirmation)
+    params.require(:critic).permit(:name, :email, :password, :password_confirmation, :admin)
   end
 
 end

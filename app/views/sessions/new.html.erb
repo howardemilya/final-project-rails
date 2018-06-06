@@ -1,6 +1,6 @@
 Please Log In:
 
-<%= form_for @user do |f| %>
+<%= form_for @critic, url: "/login" do |f| %>
 Username: <%= f.text_field :name %>
 Password: <%= f.password_field :password %>
 <%= f.submit "Log In" %>

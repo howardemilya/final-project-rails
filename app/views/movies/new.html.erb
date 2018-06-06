@@ -1,1 +1,15 @@
-#admin only - add a new movie
+Add a NEW MOVIE!
+
+<br>
+<br>
+<%= form_for @movie do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+  <%= f.label "Plot Summary:" %>
+  <%= f.text_area :plot %><br>
+  <%= f.label "Please select actors:" %>
+  <%= f.collection_check_boxes :actor_ids, Actor.all, :id, :name %><br>
+  <%= f.label "Please select genre(s):" %>
+  <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name %><br>
+  <%= f.submit "Add Movie" %>
+<% end %>

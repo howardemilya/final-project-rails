@@ -1,6 +1,6 @@
-<% if session[:user_id] == @critic.id
+<% if session[:user_id] == @critic.id %>
   Welcome <%= @critic.name%>!<br>
-  Email: <%= @critic.email %>
+  Email: <%= @critic.email %><br>
   <br>
   <% if !@critic.reviews.empty? %>
     Here are your reviews:<br>
@@ -8,7 +8,8 @@
       <li><%= link_to review.movie.title, movie_path(review.movie_id) %></li>
     <% end %></ol>
   <% else %>
-      You have no reviews yet! To see available movies for your review:<br>
+      You have no reviews yet! <br><br>
+      To see available movies for your review:<br>
       <%= link_to "click here for all movies", movies_path %>
   <% end %>
 <% else %>
@@ -19,5 +20,13 @@
     <% end %></ol>
   <% else %>
     <%= @critic.name %> does not have any reviews yet!
+  <% end %>
+<% end %>
+<br><br>
+<% if current_user && session[:user_id] == 1 || current_user.admin %>
+  <%= form_for @critic do |f| %>
+    <%= f.label :admin, "Administrator?"%>
+    <%= f.check_box :admin %>
+    <%= f.submit "Update Admin Status" %>
   <% end %>
 <% end %>

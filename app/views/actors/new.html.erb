@@ -1,1 +1,15 @@
-#admin only - add a new actor and associate movies to them (search box? like find or create?)
+
+Add a NEW ACTOR:
+<br>
+<br>
+<%= form_for @actor do |f| %>
+  <%= f.label "First Name:" %>
+  <%= f.text_field :first_name %><br>
+  <%= f.label "Last Name:" %>
+  <%= f.text_field :last_name %><br>
+  <%= f.label "Bio:" %>
+  <%= f.text_area :bio %>
+  <%= f.submit "Add Actor" %>
+<% end %>
+
+  LATER ADD SEARCH FUNCTION FOR MOVIES TO ADD
