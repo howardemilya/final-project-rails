@@ -8,7 +8,11 @@ class ActorsController < ApplicationController
   end
 
   def new
-    @actor = Actor.new
+    if current_user && current_user.admin
+      @actor = Actor.new
+    else
+      redirect_to movies_path
+    end
   end
 
   def create

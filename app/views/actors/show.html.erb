@@ -1,1 +1,10 @@
 # shows the actors first/last name, their bio then a list of movies they're in
+<%= @actor.name %>
+<br>
+<%= @actor.bio %>
+
+<% if @actor.movies %>
+  <ol><%= @actor.movies.each do |movie| %>
+    <li><%= movie.title %></li>
+  <% end %></ol>
+<% end %>

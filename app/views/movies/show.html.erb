@@ -1,1 +1,12 @@
-# movie information like name, plot, genres, actors, then a list of reviews
+
+<strong><%= @movie.title %></strong>
+<br>
+<br>
+Cast:
+<br>
+<ul><% @movie.actors.each do |actor| %>
+  <li><%=link_to actor.name, actor_path(actor) %><br></li>
+    <% end %></ul>
+<br>
+Summary:
+<%= @movie.plot %>
