@@ -8,5 +8,20 @@ Cast:
   <li><%=link_to actor.name, actor_path(actor) %><br></li>
     <% end %></ul>
 <br>
-Summary:
+Summary:<br><br>
 <%= @movie.plot %>
+<br>
+Reviews:
+<br><br>
+<%= form_for @review, url: {controller: "reviews", action: "create", method: "post"} do |f| %>
+XXXXXXXXXXXXXX
+
+<% if !@movie.reviews.empty? %>
+  <ul>
+    <% @movie.reviews.each do |review| %>
+      <li><%= review.critic%>: <%= review.content%></li><br>
+    <% end %>
+  </ul>
+<% else %>
+  This movie doesn't have any reviews yet!
+<% end %>

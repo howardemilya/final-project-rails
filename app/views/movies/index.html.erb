@@ -1,1 +1,6 @@
-# list of all movies (alphabetically or by genre?) with links to the movies show page
+
+<ul>
+  <% Movie.all.each do |movie| %>
+  <li><%= link_to movie.title, movie_path(movie) %></li>
+  <% end %>
+</ul>

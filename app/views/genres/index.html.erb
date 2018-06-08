@@ -1,1 +1,4 @@
-# this will list all genres with links to their show pages
+# this will list all genres with links to their show pages<br>
+<% Genre.all.each do |genre|  %>
+  <%= link_to genre.name, genre_path(genre) %><br>
+<% end %>

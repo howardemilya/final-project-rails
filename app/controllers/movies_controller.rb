@@ -26,6 +26,8 @@ class MoviesController < ApplicationController
     end
   end
 
+  
+
   def edit
   end
 

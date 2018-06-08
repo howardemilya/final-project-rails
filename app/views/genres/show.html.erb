@@ -1,1 +1,7 @@
-# this will list all movies of this genre's name
+# this will list all movies of this genre's name<br><br>
+<strong><%= @genre.name %></strong>
+<br>
+<br>
+<% @genre.movies.each do |movie| %>
+  <%= link_to movie.title, movie_path(movie) %>
+<% end %>
