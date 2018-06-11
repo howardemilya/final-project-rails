@@ -1,1 +1,4 @@
-#list of all actors (alphabetically?) with links to their show pages
+#list of all actors (alphabetically?) with links to their show pages<br><br>
+<ul><% Actor.all.each do |actor| %>
+  <li><%= link_to actor.name, actor_path(actor) %></li><br>
+<% end %></ul>

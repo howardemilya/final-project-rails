@@ -35,10 +35,17 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  def update
+    @movie = Movie.find(params[:id])
+    @movie.update(movie_params)
+    @movie.save
+    redirect_to movie_path(@movie)
+  end
+
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :plot, :genre_ids => [], :actor_ids => [])
+    params.require(:movie).permit(:title, :plot, :genre_ids => [], :actor_ids => [], actors_attributes: [:first_name, :last_name, :bio])
   end
 
 

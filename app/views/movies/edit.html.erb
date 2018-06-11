@@ -1,5 +1,7 @@
 #admin only - edit a movie
 Edit Movie Info:
 
-
- <%= render 'form' %>
+ <%= form_for @movie do |f| %>
+   <%= render 'form', f: f %>
+   <%= f.submit "Update Movie" %>
+ <% end %>
