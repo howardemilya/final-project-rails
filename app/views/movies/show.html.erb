@@ -11,10 +11,9 @@ Cast:
 Summary:<br><br>
 <%= @movie.plot %>
 <br>
+<br>
 Reviews:
 <br><br>
-<%= form_for @review, url: {controller: "reviews", action: "create", method: "post"} do |f| %>
-XXXXXXXXXXXXXX
 
 <% if !@movie.reviews.empty? %>
   <ul>

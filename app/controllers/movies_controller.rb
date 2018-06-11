@@ -6,6 +6,9 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    if current_user
+      @critic = Critic.find(session[:user_id])
+    end
   end
 
   def new
@@ -26,9 +29,10 @@ class MoviesController < ApplicationController
     end
   end
 
-  
+
 
   def edit
+    @movie = Movie.find(params[:id])
   end
 
   private
