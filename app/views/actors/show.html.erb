@@ -1,10 +1,15 @@
-# shows the actors first/last name, their bio then a list of movies they're in
-<%= @actor.name %>
-<br>
+
+<strong><%= @actor.name %></strong>
+<br><br>
+<% if current_user.admin %>
+  <%= link_to "Edit Actor details", edit_actor_path %><br><br>
+<% end %>
+Bio:<br><br>
 <%= @actor.bio %>
+
 
 <% if @actor.movies %>
   <ol><% @actor.movies.each do |movie| %>
-    <li><%= movie.title %></li>
+    <li><%= link_to movie.title, movie_path(movie) %></li>
   <% end %></ol>
 <% end %>

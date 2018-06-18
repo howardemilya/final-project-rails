@@ -1,7 +1,12 @@
-# this will list all movies of this genre's name<br><br>
+<br><br>
 <strong><%= @genre.name %></strong>
 <br>
 <br>
+<ul>
 <% @genre.movies.each do |movie| %>
-  <%= link_to movie.title, movie_path(movie) %>
+  <li><%= link_to movie.title, movie_path(movie) %><br></li>
+<% end %>
+</ul>
+<% if current_user.admin %>
+  <%= link_to "Add a NEW movie", new_movie_path %>
 <% end %>

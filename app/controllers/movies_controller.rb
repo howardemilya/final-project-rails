@@ -33,7 +33,11 @@ class MoviesController < ApplicationController
 
 
   def edit
-    @movie = Movie.find(params[:id])
+    if current_user.admin
+      @movie = Movie.find(params[:id])
+    else
+      redirect_to movies_path
+    end
   end
 
   def update
@@ -46,7 +50,7 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :plot, :genre_ids => [], :actor_ids => [], actors_attributes: [:first_name, :last_name, :bio])
+    params.require(:movie).permit(:title, :plot, :year, :genre_ids => [], :actor_ids => [], actors_attributes: [:first_name, :last_name, :bio])
   end
 
 

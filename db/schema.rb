@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_05_194944) do
+ActiveRecord::Schema.define(version: 2018_06_16_040932) do
 
   create_table "actor_movies", force: :cascade do |t|
     t.integer "actor_id"
@@ -34,6 +34,10 @@ ActiveRecord::Schema.define(version: 2018_06_05_194944) do
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
+    t.string "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
   create_table "genre_movies", force: :cascade do |t|
@@ -54,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_06_05_194944) do
     t.text "plot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "year"
   end
 
   create_table "reviews", force: :cascade do |t|

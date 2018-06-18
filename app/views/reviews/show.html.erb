@@ -1,0 +1,11 @@
+<%= @review.critic.name%> reviewed <%=@review.movie.title%>
+
+<br><br>
+Rating: <%= @review.star_rating %> Stars <br>
+<br>
+Review:<br>
+<%= @review.content %>
+<br>
+<% if current_user && session[:user_id] == @review.critic_id %>
+  <%= link_to "Edit Your Review", edit_review_path %>
+<% end %>

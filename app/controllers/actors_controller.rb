@@ -24,10 +24,25 @@ class ActorsController < ApplicationController
     end
   end
 
+  def edit
+    if current_user.admin
+      @actor = Actor.find(params[:id])
+    else
+      redirect_to movies_path
+    end
+  end
+
+  def update
+    @actor = Actor.find(params[:id])
+    @actor.update(actor_params)
+    @actor.save
+    redirect_to actor_path(@actor)
+  end
+
   private
 
   def actor_params
-    params.require(:actor).permit(:first_name, :last_name, :bio)
+    params.require(:actor).permit(:first_name, :last_name, :bio, :movie_ids => [])
   end
 
 

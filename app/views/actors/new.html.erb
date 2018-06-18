@@ -8,8 +8,8 @@ Add a NEW ACTOR:
   <%= f.label "Last Name:" %>
   <%= f.text_field :last_name %><br>
   <%= f.label "Bio:" %>
-  <%= f.text_area :bio %>
+  <%= f.text_area :bio %><br>
+  <%= f.label "Please select Movies:" %><br>
+  <%= f.collection_check_boxes :movie_ids, Movie.all, :id, :title %><br><br>
   <%= f.submit "Add Actor" %>
 <% end %>
-
-  LATER ADD SEARCH FUNCTION FOR MOVIES TO ADD

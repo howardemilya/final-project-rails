@@ -1,6 +1,22 @@
+<% if current_user.admin %>
+  <%= link_to "Add a NEW movie", new_movie_path %><br><br>
+<% end %>
 
+Find Movie by Genre:<br>
+<ul>
+  <% Genre.all.each do |genre| %>
+  <li><%= link_to genre.name, genre_path(genre) %></li>
+  <% end %>
+</ul>
+<br>
+<br>
+All Movies:<br>
 <ul>
   <% Movie.all.each do |movie| %>
   <li><%= link_to movie.title, movie_path(movie) %></li>
   <% end %>
 </ul>
+
+<br>
+<br>
+<br>

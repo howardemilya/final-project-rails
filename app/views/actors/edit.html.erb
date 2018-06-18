@@ -1,1 +1,11 @@
-#admin only to edit exitsing actor
+Edit <% @actor.name %><br><br>
+
+<%= form_for @actor do |f| %>
+  <%= f.label "First Name:" %>
+  <%= f.text_field :first_name %><br>
+  <%= f.label "Last Name:" %>
+  <%= f.text_field :last_name %><br>
+  <%= f.label "Bio:" %>
+  <%= f.text_area :bio %>
+  <%= f.submit "Update Actor" %>
+<% end %>

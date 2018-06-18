@@ -6,10 +6,9 @@ class ReviewsController < ApplicationController
 
   def new
     if current_user
-      @movie = Movie.find(params[:id])
-      @review = Review.new
+      @movie = Movie.find(params[:movie_id])
       @critic = Critic.find(session[:user_id])
-      @review.critic_id = @critic.id
+      @review = Review.new(movie_id: params[:movie_id], critic_id: @critic.id)
     else
       redirect_to "/login"
     end
@@ -23,6 +22,20 @@ class ReviewsController < ApplicationController
       redirect_to new_review_path
     end
   end
+
+  def show
+    @review = Review.find(params[:id])
+  end
+
+  def edit
+    if current_user && session[:user_id] == Review.find(params[:id]).critic_id
+      @review = Review.find(params[:id])
+    else
+      @review = Review.find(params[:id])
+      redirect_to review_path(@review)
+    end
+  end 
+
 
   private
 
