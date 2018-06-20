@@ -1,0 +1,9 @@
+Edit Your Account Info:<br>
+
+<%= form_for @critic do |f| %>
+Username: <%= f.text_field :name %>
+Email: <%= f.text_field :email %>
+Password: <%= f.password_field :password %>
+Confirm Password: <%= f.password_field :password_confirmation %>
+<%= f.submit "Make Changes" %>
+<% end %>

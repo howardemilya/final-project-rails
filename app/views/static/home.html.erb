@@ -1,1 +1,11 @@
-HOMEPAGE 
+<br>
+<h1>Welcome to Movie on Rails!</h1><br>
+<h2>Become one of our movie review critics by creating an account or logging in with your Google account! </h2>
+<br>
+<br>
+Most Reviewed Movies:
+<ol>
+<% Movie.most_reviewed.each do |movie| %>
+  <li><%= link_to movie.title, movie_path(movie) %></li>
+<% end %>
+</ol>

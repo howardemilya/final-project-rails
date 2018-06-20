@@ -6,4 +6,13 @@ class Movie < ApplicationRecord
   has_many :genre_movies
   has_many :genres, through: :genre_movies
   accepts_nested_attributes_for :actors, reject_if: proc { |attributes| attributes['first_name'].blank? }
+
+  def self.most_reviewed
+    @movies = []
+    Review.most_movie_ids.each do |k, v|
+      @movies << self.find(k)
+    end
+    @movies
+  end
+
 end

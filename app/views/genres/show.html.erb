@@ -1,7 +1,6 @@
 <br><br>
 <strong><%= @genre.name %></strong>
 <br>
-<br>
 <ul>
 <% @genre.movies.each do |movie| %>
   <li><%= link_to movie.title, movie_path(movie) %><br></li>

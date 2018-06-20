@@ -5,7 +5,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @critic = Critic.find_by(name: params[:critic][:name]) || Critic.from_omniauth(env["omniauth.auth"])
+    if !!params[:critic]
+      @critic = Critic.find_by(name: params[:critic][:name])
+    else
+      @critic = Critic.from_omniauth(request.env["omniauth.auth"])
+    end
     session[:user_id] = @critic.id
     redirect_to critic_path(@critic)
   end

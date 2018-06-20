@@ -4,15 +4,15 @@
 
 Find Movie by Genre:<br>
 <ul>
-  <% Genre.all.each do |genre| %>
+  <% Genre.all.order(name: :asc).each do |genre| %>
   <li><%= link_to genre.name, genre_path(genre) %></li>
   <% end %>
 </ul>
 <br>
 <br>
-All Movies:<br>
+All Movies A-Z:<br>
 <ul>
-  <% Movie.all.each do |movie| %>
+  <% Movie.all.order(title: :asc).each do |movie| %>
   <li><%= link_to movie.title, movie_path(movie) %></li>
   <% end %>
 </ul>

@@ -6,11 +6,15 @@
   <br><%= link_to "Edit Movie details", edit_movie_path %><br>
 <% end %>
 <br>
-Cast:
-<br>
-<ul><% @movie.actors.each do |actor| %>
-  <li><%=link_to actor.name, actor_path(actor) %><br></li>
-    <% end %></ul>
+<% if !@movie.actors.empty? %>
+  Cast:
+  <br>
+  <ul>
+  <% @movie.actors.each do |actor| %>
+    <li><%=link_to actor.name, actor_path(actor) %><br></li>
+  <% end %>
+</ul>
+<% end %>
 <br>
 Summary:<br><br>
 <%= @movie.plot %>

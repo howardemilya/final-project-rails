@@ -7,4 +7,7 @@ Email: <%= f.text_field :email %>
 Password: <%= f.password_field :password %>
 Confirm Password: <%= f.password_field :password_confirmation %>
 <%= f.submit "Create Account" %>
-<% end %> 
+<% end %>
+<br>
+<br>
+<%= link_to "Sign in with Google instead", "/auth/google_oauth2", id: "sign_in" %>

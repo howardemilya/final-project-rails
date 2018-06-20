@@ -10,6 +10,7 @@ class Critic < ApplicationRecord
       critic.name = auth.info.name
       critic.oauth_token = auth.credentials.token
       critic.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      critic.password = "password"
       critic.save!
     end
   end
