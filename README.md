@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello! This is the Movie on Rails web application!
 
-Things you may want to cover:
+This is a site that will allow you to create an account as a movie critic. You can see a list of all movies (A-Z) or select one based on its genre. If you are allowed administrative privileges, you may also add new movies, add new actors, and change the administrative status of other critics.
 
-* Ruby version
+Contributors guide: for any changes, please reach out directly to Emily Howard (howard.emilya@gmail.com)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To get everything set up, please bundle install.
