@@ -15,4 +15,8 @@ class Movie < ApplicationRecord
     @movies
   end
 
+  def average_star_rating
+    Review.where(movie_id: self.id).average("star_rating").to_i
+  end
+
 end

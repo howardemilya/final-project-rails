@@ -2,10 +2,12 @@
 <strong><%= @movie.title %></strong>
 (<%=@movie.year%>)
 <br>
-<% if current_user.admin %>
-  <br><%= link_to "Edit Movie details", edit_movie_path %><br>
+<% if current_user %>
+  <% if current_user.admin %>
+    <br><%= link_to "Edit Movie details", edit_movie_path %><br>
+  <% end %>
 <% end %>
-<br>
+  <br>
 <% if !@movie.actors.empty? %>
   Cast:
   <br>
@@ -25,9 +27,10 @@ Reviews:
 <%= link_to "Click to review '#{@movie.title}'", new_movie_review_path(@movie) %><br><br>
 
 <% if !@movie.reviews.empty? %>
+  Average Star Rating: <%= @movie.average_star_rating%> Stars<br>
   <ul>
     <% @movie.reviews.each do |review| %>
-      <li><%= review.critic.name%>: <%= review.content%></li><br>
+      <li><%= review.critic.name%>: <%= review.content%></li><%= link_to "Edit Your Review", edit_movie_review_path(@movie, review) if current_user == review.critic %><br>
     <% end %>
   </ul>
 <% else %>

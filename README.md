@@ -6,4 +6,4 @@ This is a site that will allow you to create an account as a movie critic. You c
 
 Contributors guide: for any changes, please reach out directly to Emily Howard (howard.emilya@gmail.com)
 
-To get everything set up, please bundle install.
+To get everything set up, please bundle install. 

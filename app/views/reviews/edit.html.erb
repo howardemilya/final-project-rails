@@ -1,1 +1,13 @@
-EDIT REVIEW HERE
+Review for <%= link_to @movie.title, movie_path(@movie)%>
+
+<br>
+<br>
+<%= form_for @review do |f| %>
+  <%= f.label "Star Rating (1-5):"%>
+  <%= f.text_field :star_rating %><br><br>
+  <%= f.label "Review:" %><br>
+  <%= f.text_area :content %><br><br>
+  <%= f.hidden_field :movie_id %>
+  <%= f.hidden_field :critic_id %>
+  <%= f.submit "Update Review" %>
+<% end %>

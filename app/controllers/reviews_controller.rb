@@ -30,11 +30,20 @@ class ReviewsController < ApplicationController
   def edit
     if current_user && session[:user_id] == Review.find(params[:id]).critic_id
       @review = Review.find(params[:id])
+      @movie = Movie.find(@review.movie_id)
     else
       @review = Review.find(params[:id])
       redirect_to review_path(@review)
     end
-  end 
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+    @review.save
+    redirect_to review_path(@review)
+  end
+
 
 
   private

@@ -1,4 +1,4 @@
-<%= @review.critic.name%> reviewed <%=@review.movie.title%>
+<%= @review.critic.name%> reviewed <%= link_to @review.movie.title, movie_path(@review.movie)%>
 
 <br><br>
 Rating: <%= @review.star_rating %> Stars <br>
