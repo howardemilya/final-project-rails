@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :movies do
     resources :reviews
   end
+  get '/best_movies' => 'static#best_rated'
   get 'auth/google_oauth2/callback' => 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get '/signup' => "critics#new"

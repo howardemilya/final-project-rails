@@ -19,4 +19,9 @@ class Movie < ApplicationRecord
     Review.where(movie_id: self.id).average("star_rating").to_i
   end
 
+  def self.best_rated
+    self.joins(:reviews).order('star_rating DESC').limit(5)
+  end
+
+
 end
