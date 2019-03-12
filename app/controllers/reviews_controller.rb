@@ -30,6 +30,7 @@ class ReviewsController < ApplicationController
   def edit
     if current_user && session[:user_id] == Review.find(params[:id]).critic_id
       @review = Review.find(params[:id])
+      @movie = Movie.find(@review.movie_id)
     else
       @review = Review.find(params[:id])
       redirect_to review_path(@review)
