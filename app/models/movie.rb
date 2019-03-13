@@ -20,7 +20,7 @@ class Movie < ApplicationRecord
   end
 
   def self.best_rated
-    self.joins(:reviews).order('star_rating DESC').group('movie_id').limit(10)
+    self.joins(:reviews).order('avg(reviews.star_rating) DESC').group('movies.id, reviews.star_rating').limit(10)
   end
 
 
